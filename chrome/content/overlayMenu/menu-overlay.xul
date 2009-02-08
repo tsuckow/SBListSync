@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://df1_listsync/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://df1_listsync/locale/overlay.dtd">
+<overlay id="df1_listsync-menu-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="MenuListener.js" />
+  
+  <!-- Target the tools menu -->
+	<menupopup id="menu_ToolsPopup"> 
+		<menuseparator id="df1_listsync-MenuSeparator" insertbefore="devToolsSeparator"/>
+    
+		<menuitem id="df1_listsync-MenuSettings"
+            label="&df1_listsync.menu.settings.label;"
+            insertbefore="devToolsSeparator"
+            command="df1_listsync-menu-settings" />   
+			
+		<menuitem id="df1_listsync-MenuSync"
+            label="&df1_listsync.menu.enable.label;" 
+			type="checkbox"
+            insertbefore="devToolsSeparator"
+            command="df1_listsync-menu-enable" /> 
+     
+  </menupopup>
+
+</overlay>

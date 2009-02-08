@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://df1_listsync/skin/options.css" type="text/css"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE prefwindow SYSTEM "chrome://df1_listsync/locale/options.dtd">
+<!-- OPTIONS WINDOW - Specified in install.rdf, launched from the Extension Manager -->
+<prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+id="df1_listsyncPreferences"
+onload="Df1_listsync.Options.init();"
+ondialogaccept="Df1_listsync.Options.accept();"
+title="&prefwindow.title;">
+	<script src="options.js" ></script>
+	<script src="options_list.js" ></script>
+	<script src="options_populate.js" ></script>
+	<script src="options_selection.js" ></script>
+	
+	
+	<prefpane id="pane1" label="&pane1.title;">
+		<preferences>
+			<preference id="enablepref" name="extensions.df1_listsync.syncenabled" type="bool"/>
+			<preference id="refreshpref" name="extensions.df1_listsync.refreshtime" type="int"/>
+		</preferences>
+	
+		<groupbox align="center" orient="horizontal" id="df1_listsync-OptionsBox">
+			<vbox>
+				<checkbox id="enablepref" preference="enablepref" label="&enablepref.label;"/>
+				
+				<grid>
+					
+					<columns>
+						<column flex="3"/>
+						<column flex="1"/>
+					</columns>
+					
+					<rows>
+						<row>
+							<label control="refreshPref">&refreshpref.label;</label>
+							<textbox id="refreshPref" preference="refreshPref" type="number" min="5" increment="1" wraparound="false"/>
+						</row>
+					</rows>
+				</grid>
+				
+				<groupbox>
+					<caption label="Account"/>
+					<vbox>
+						<label class="Notice">&acct.notice;</label>
+						<grid>
+							
+							<columns>
+								<column flex="0"/>
+								<column flex="1"/>
+							</columns>
+							
+							<rows>
+								<row>
+									<label control="userPref">&userpref.label;</label>
+									<textbox id="userPref" oninput="Df1_listsync.Options.loginChange();" />
+								</row>
+								<row>
+									<label control="passPref">&passpref.label;</label>
+									<hbox flex="1">
+										<textbox id="passPref" type="password" oninput="Df1_listsync.Options.loginChange();" flex="1" />
+										<vbox pack="center" style="width:16px;">
+											<image id="df1_listsync-LoginImage" tooltiptext="Checking Login." style="width:16px;" />
+										</vbox>
+									</hbox>
+								</row>
+							</rows>
+						</grid>
+						<hbox pack="end">
+							<label class="text-link" value="Register"
+								onclick="Components.classes['@mozilla.org/appshell/window-mediator;1']
+							      .getService(Components.interfaces.nsIWindowMediator)
+							      .getMostRecentWindow('Songbird:Main')
+							      .openUILinkIn('http://www.google.com', 'tab');"/>
+						</hbox>
+					</vbox>
+				</groupbox>
+				
+				<!-- List Box (Synced Items) -->
+				<groupbox flex="1">
+					<caption label="Synced Playlists" />
+					<vbox flex="1">
+						<label class="Notice">&acct.notice;</label>
+						<richlistbox flex="0" style="height:146px; width:300px;" id="synclist" onselect="Df1_listsync.Options.onSelection();" >
+	
+							
+							
+						</richlistbox>
+						<hbox pack="end">
+							<!-- TODO:Refresh -->
+							<button id="df1_listsync-ButtonEnable" disabled="true" label="Disable" onclick="Df1_listsync.Options.onClick();" />
+						</hbox>
+					</vbox>
+				</groupbox><!-- Synced Lists -->
+			</vbox>
+		</groupbox><!-- Document -->
+	</prefpane>
+</prefwindow>

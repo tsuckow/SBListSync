@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overlay id="df1_listsync-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script src="ajax.js" />
+	<script src="IO.js" />
+	<script src="IO_Helpers.js" />
+	<script src="IO_Processing.js" />
+	<script src="IO_Wait.js" />
+	<script src="IO_List.js" />
+	<script src="IO_ListInfo.js" />
+	<script src="IO_Lists.js" />
+	<script src="IO_ListManip.js" />
+	<script src="IO_Login.js" />
+	
+</overlay>

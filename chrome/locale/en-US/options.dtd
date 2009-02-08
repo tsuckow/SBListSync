@@ -1,0 +1,10 @@
+<!ENTITY prefwindow.title "ListSync preferences">
+<!ENTITY pane1.title "ListSync preferences">
+
+<!ENTITY enablepref.label "Enable Syncing">
+
+<!ENTITY refreshpref.label "Refresh Time (Minutes)">
+
+<!ENTITY acct.notice "Note: Changes in this section take effect immediately.">
+<!ENTITY userpref.label "Username">
+<!ENTITY passpref.label "Password">

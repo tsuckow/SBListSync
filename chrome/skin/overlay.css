@@ -1,0 +1,29 @@
+
+/** Make the menu item red so that it stands out **/
+#df1_listsync-MenuSettings
+{
+	/*font-weight: bold;*/
+}
+
+
+/** Apply an image to our toolbarbutton.  Use multiple states in a
+    single image and then reposition the viewport in order to avoid
+    flickering on state change 
+#df1_listsync-toolbarbutton
+{
+  list-style-image: url(chrome://df1_listsync/skin/toolbar.png);
+  -moz-image-region: rect(0px 16px 16px 0px);
+}
+#df1_listsync-toolbarbutton:hover
+{
+  -moz-image-region: rect(16px 16px 32px 0px);
+}
+#df1_listsync-toolbarbutton[disabled="true"]
+{
+  -moz-image-region: rect(48px 16px 64px 0px);
+}
+#df1_listsync-toolbarbutton[active="true"]
+{
+  -moz-image-region: rect(32px 16px 48px 0px);
+}
+*/

@@ -1,0 +1,10 @@
+#df1_listsync-AboutBox
+{
+	background-color: #666666;
+	color: white;
+}
+
+#df1_listsync-AboutImage
+{
+	list-style-image: url("chrome://df1_listsync/skin/transfering.png");
+}

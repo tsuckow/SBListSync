@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://df1_listsync/skin/about.css" type="text/css"?>
+<!DOCTYPE dialog SYSTEM "chrome://df1_listsync/locale/about.dtd">
+<!-- ABOUT BOX - Specified in install.rdf and loaded by the Extension Manager -->
+<dialog title="&about;" orient="vertical" autostretch="always" onload="sizeToContent()" buttons="accept" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<!-- Original template by Jed Brown -->
+	
+	<groupbox align="center" orient="horizontal" id="df1_listsync-AboutBox">
+		<vbox>
+			<image id="df1_listsync-AboutImage"/>
+			
+			<text value="ListSync" style="font-weight: bold; font-size: x-large;"/>
+			<text value="&version; 0.1.1" style="font-weight: bold; color: #BBBBBB;"/>
+			
+			<separator class="thin"/>
+			
+			<text value="&createdBy;" style="font-weight: bold;"/>
+			<text value="Thomas Suckow"/>
+			
+			<text value="&hostingBy;" style="font-weight: bold;"/>
+			<text value="NovaHost.org" />
+		</vbox>
+	</groupbox>
+</dialog>

@@ -1,0 +1,23 @@
+#df1_listsync-OptionsBox
+{
+	
+}
+
+#df1_listsync-LoginImage
+{
+	list-style-image: url("chrome://df1_listsync/skin/busy.png");
+	width: 16px;
+	height: 16px;
+}
+/*
+#df1_listsync-ButtonAdd
+{
+	list-style-image: url("chrome://songbird/skin/smart-playlist/button-add.png");
+}
+*/
+.Notice
+{
+	color:#991111;
+	font-size:7.5pt;
+	font-weight:bold;
+}

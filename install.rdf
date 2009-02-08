@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+     xmlns:songbird="http://www.songbirdnest.com/2007/addon-metadata-rdf#">
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>df1_listsync@defcon1.hopto.org</em:id>
+    <em:type>2</em:type>
+    <em:name>ListSync</em:name>
+    <em:version>0.1.1</em:version>
+    <em:creator>Thomas Suckow</em:creator>
+
+	<em:iconURL>chrome://df1_listsync/content/extensionicon.png</em:iconURL>
+
+    <em:description>Synchronizes playlists between multiple songbird installations.</em:description>
+
+
+
+
+	<em:homepageURL>http://defcon1.hopto.org/</em:homepageURL>
+    <em:optionsURL>chrome://df1_listsync/content/dialogOptions/options.xul</em:optionsURL>
+	<em:aboutURL>chrome://df1_listsync/content/dialogAbout/about.xul</em:aboutURL>
+
+
+
+    <em:targetApplication>
+      <Description>
+        <em:id>songbird@songbirdnest.com</em:id>
+        <em:minVersion>0.8.0pre</em:minVersion>
+        <em:maxVersion>1.1.0pre</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+  </Description>
+</RDF>

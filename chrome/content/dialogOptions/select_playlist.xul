@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE dialog SYSTEM "chrome://df1_listsync/locale/select_playlist.dtd">
+<dialog
+xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+id="select_playlist_dialog"
+xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:rdf="http://www.w3.org/TR/WD-rdf-syntax#"
+title="&title;"
+hidechrome="false"
+ondialogaccept="return accept();"
+buttonlabelaccept="&accept.label;"
+onload="load();"
+buttons="accept,cancel">
+
+	<script src="select_playlist.js" />
+
+	<label>Check</label>
+	<label>tip</label>
+
+
+		<listbox id="PlaylistList" height="250" style="overflow: auto;" width="435">
+
+		</listbox>
+
+	<description>desc</description>
+	<label id="export_stat" value="val" />
+</dialog>
