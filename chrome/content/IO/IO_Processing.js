@@ -30,34 +30,42 @@ Df1_listsync.IO.process = function()
 		else if( item[0] == Df1_listsync.IOops.LOGOUT )
 		{
 			this.Logout_PHandler(item);
+			this.busy = true;
 		}
 		else if( item[0] == Df1_listsync.IOops.LOGIN_HELLO )
 		{
 			this.LoginHello_PHandler(item);
+			this.busy = true;
 		}
 		else if( item[0] == Df1_listsync.IOops.LOGIN_DO )
 		{
 			this.LoginDo_PHandler(item);
+			this.busy = true;
 		}
 		else if( item[0] == Df1_listsync.IOops.LIST_GET )
 		{
 			this.ListGet_PHandler(item);
+			this.busy = true;
 		}
 		else if( item[0] == Df1_listsync.IOops.LIST_HASH )
 		{
 			this.ListHash_PHandler(item);
+			this.busy = true;
 		}
 		else if( item[0] == Df1_listsync.IOops.LIST_MANIP )
 		{
 			this.ListManip_PHandler(item);
+			this.busy = true;
 		}
 		else if( item[0] == Df1_listsync.IOops.LISTS_GET )
 		{
 			this.getLists_PHandler(item);
+			this.busy = true;
 		}
 		else if( item[0] == Df1_listsync.IOops.GET_INFO )
 		{
 			this.listInfo_PHandler(item);
+			this.busy = true;
 		}
 		else if( item[0] == Df1_listsync.IOops.WAIT )
 		{
@@ -71,6 +79,7 @@ Df1_listsync.IO.process = function()
 	}
 	
 	//Do it all again
+	if( !this.busy )
 	this.timer = setTimeout(function(){ oThis.process(); },100);
 };
 	
@@ -126,4 +135,5 @@ Df1_listsync.IO.handleCallback = function(success,data)
 		}
 		
 		this.busy = false;
+		this.timer = setTimeout(function(){ oThis.process(); },100);
 	};
