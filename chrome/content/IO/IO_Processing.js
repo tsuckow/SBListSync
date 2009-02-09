@@ -79,7 +79,6 @@ Df1_listsync.IO.process = function()
 	}
 	
 	//Do it all again
-	if( !this.busy )
 	this.timer = setTimeout(function(){ oThis.process(); },100);
 };
 	
@@ -135,5 +134,4 @@ Df1_listsync.IO.handleCallback = function(success,data)
 		}
 		
 		this.busy = false;
-		this.timer = setTimeout(function(){ oThis.process(); },100);
 	};

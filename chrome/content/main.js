@@ -47,11 +47,6 @@ Df1_listsync.Controller = {
 		var login = Df1_listsync.LoginHelper.getLogin();
 		Df1_listsync.IO.setLogin( login.username, login.password );
 		
-		/*setTimeout(function(){ Df1_listsync.IO.getRemotePlaylist(5); },5000);
-		setTimeout(function(){ Df1_listsync.IO.logout(); },7000);
-		setTimeout(function(){ Df1_listsync.IO.getRemotePlaylist(5); },9000);
-		setTimeout(function(){ Df1_listsync.IO.getRemotePlaylistHash(5); },11000);*/
-		
 		// Perform extra actions the first time the extension is run after init
 		if (Application.prefs.get("extensions.df1_listsync.firstrun").value)
 		{

@@ -20,7 +20,7 @@ function()
 Df1_listsync.Sync.getDelayTime =
 function()
 {
-	return 30*1000//5*60*1000;
+	return 60*1000//5*60*1000;
 };
 
 /**
@@ -39,11 +39,16 @@ completion of said operation.
 Df1_listsync.Sync.doSync =
 function()
 {
+	var d = new Date();
+	var timeS= d.getTime();
+
 	//Sync
 	Df1_listsync.StatusHandler.setText("Syncing.");
 	
 	//Get the lists that we sync
 	var LocalLists = Df1_listsync.DB.getLists();
+	
+	Df1_listsync.Sync.Delay();
 	
 	//Handle each list
 	for ( var i = 0; i < LocalLists.length; i++ )
@@ -246,7 +251,12 @@ function()
 		
 	}
 	
-	Df1_listsync.Sync.Delay();
+	
+	
+	d = new Date();
+	var timeE= d.getTime();
+	
+	Df1_listsync.StatusHandler.setText("Completed Sync in: " + (timeE - timeS));
 };
 
 /**
@@ -268,19 +278,14 @@ function(success, data, id)
 		
 		Df1_listsync.DB.setRemoteList(id, listData);
 		Df1_listsync.Sync.forceSync();
-	}
-	else
-	{
-		Df1_listsync.Sync.Delay();
-	}
-	
+	}	
 };
 
 Df1_listsync.Sync.forceSync =
 function()
 {
 	clearTimeout( this.timer );
-	setTimeout( function(){ Df1_listsync.Sync.doSync() }, 5000 );
+	this.timer = setTimeout( function(){ Df1_listsync.Sync.doSync() }, 2000 );
 };
 
 Df1_listsync.Sync.Delay =
@@ -288,5 +293,5 @@ function()
 {
 	var delay = Df1_listsync.Sync.getDelayTime();
 	clearTimeout( this.timer );
-	setTimeout( function(){ Df1_listsync.Sync.doSync() }, delay );
+	this.timer = setTimeout( function(){ Df1_listsync.Sync.doSync() }, delay );
 };
