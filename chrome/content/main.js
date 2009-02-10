@@ -13,8 +13,8 @@ if (typeof DF1ListSync.nMain == 'undefined')
 DF1ListSync.nMain.onLoad =
 function()
 {
-	var settings = new DF1ListSync.iSettings();
-	settings.getUsername();
+	var httpRequest = new DF1ListSync.iXMLHttpRequest();
+	var ajax = new DF1ListSync.cAjax(httpRequest);
 };
 
 window.addEventListener("load", function(e) { DF1ListSync.nMain.onLoad(e); }, false);

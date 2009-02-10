@@ -12,7 +12,10 @@ if (typeof DF1ListSync.cNotImplementedException_body == 'undefined')
 DF1ListSync.cNotImplementedException_body.construct =
 function(msg)
 {
+	//Super
+	arguments.callee.$.construct.call(this);
+	
 	this.message = (typeof msg == 'undefined') ? "" : msg;
 };
 
-DF1ListSync.cNotImplementedException_body.name = "Action Not Implemented";
+DF1ListSync.cNotImplementedException_body.name = "NotImplementedException";

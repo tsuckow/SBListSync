@@ -8,9 +8,9 @@ if (typeof DF1ListSync.iSettings_body == 'undefined')
 {
 	DF1ListSync.iSettings_body = {};
 }
-		
-DF1ListSync.iSettings_body.construct =
+
+DF1ListSync.iSettings_body.getUsername =
 function()
 {
-	//Constructor
+	throw new DF1ListSync.cNotImplementedException("Abstract Function");
 };

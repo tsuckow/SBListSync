@@ -6,11 +6,8 @@ if (typeof DF1ListSync == 'undefined')
 
 if (typeof DF1ListSync.iException == 'undefined')
 {
-	/*if (typeof DF1ListSync.iException_body != 'undefined')
-	{
-		DF1ListSync.iException = PolyClass.extend(DF1ListSync.iException_body);
-	}*/
-	DF1ListSync.iException = function(){ };//Contructor
+	DF1ListSync.iException = function(){};//Contructor
 	DF1ListSync.iException.prototype = new Error();
+	DF1ListSync.iException.prototype.construct = function() {};
 	DF1ListSync.iException.extend = PolyClass.extend;
 }
