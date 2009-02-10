@@ -1,19 +1,25 @@
+//Make Namespace.
+if (typeof DF1ListSync == 'undefined')
+{
+	var DF1ListSync = {};
+}
+
 //Gives us rich Polymorphic class capabilities.
 
-if(typeof PolyClass == 'undefined')
+if(typeof DF1ListSync.cObject == 'undefined')
 {
 	//Thank You
 	//http://truecode.blogspot.com/2006/08/object-oriented-super-class-method.html
 	
 	//Defines the top level Class
-	function PolyClass() { }
-	PolyClass.prototype.construct = function() {};
-	PolyClass.extend = function(def) {
+	DF1ListSync.cObject = function() {};
+	DF1ListSync.cObject.prototype.construct = function() {};
+	DF1ListSync.cObject.extend = function(def) {
 	  var classDef = function() {
-	      if (arguments[0] !== PolyClass) { this.construct.apply(this, arguments); }
+	      if (arguments[0] !== DF1ListSync.cObject) { this.construct.apply(this, arguments); }
 	  };
 
-	  var proto = new this(PolyClass);
+	  var proto = new this(DF1ListSync.cObject);
 	  var superClass = this.prototype;
 
 	  for (var n in def) {

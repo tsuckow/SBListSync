@@ -2,7 +2,7 @@
 <overlay id="df1_listsync-scripts" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
 	<!-- Polymophic base -->
-	<script src="cPolyClass/cPolyClass.js"/>
+	<script src="cObject/cObject.js"/>
 	
 	<!-- Exceptions -->
 	<script src="Exceptions/iException/iException.js"/>

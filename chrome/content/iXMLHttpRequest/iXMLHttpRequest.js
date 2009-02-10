@@ -9,5 +9,5 @@ if (typeof DF1ListSync.iXMLHttpRequest == 'undefined')
 	DF1ListSync.iXMLHttpRequest = function(){};//Contructor
 	DF1ListSync.iXMLHttpRequest.prototype = new XMLHttpRequest();
 	DF1ListSync.iXMLHttpRequest.prototype.construct = function() {};
-	DF1ListSync.iXMLHttpRequest.extend = PolyClass.extend;
+	DF1ListSync.iXMLHttpRequest.extend = DF1ListSync.cObject.extend;
 }

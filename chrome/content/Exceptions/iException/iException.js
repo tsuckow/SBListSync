@@ -9,5 +9,5 @@ if (typeof DF1ListSync.iException == 'undefined')
 	DF1ListSync.iException = function(){};//Contructor
 	DF1ListSync.iException.prototype = new Error();
 	DF1ListSync.iException.prototype.construct = function() {};
-	DF1ListSync.iException.extend = PolyClass.extend;
+	DF1ListSync.iException.extend = DF1ListSync.cObject.extend;
 }

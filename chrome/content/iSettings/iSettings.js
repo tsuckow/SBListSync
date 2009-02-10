@@ -8,6 +8,6 @@ if (typeof DF1ListSync.iSettings == 'undefined')
 {
 	if (typeof DF1ListSync.iSettings_body != 'undefined')
 	{
-		DF1ListSync.iSettings = PolyClass.extend(DF1ListSync.iSettings_body);
+		DF1ListSync.iSettings = DF1ListSync.cObject.extend(DF1ListSync.iSettings_body);
 	}
 }
