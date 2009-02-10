@@ -1,17 +1,34 @@
+//Make Namespace.
+if (typeof DF1ListSync == 'undefined')
+{
+	var DF1ListSync = {};
+}
 
+//Make Namespace.
+if (typeof DF1ListSync.nMain == 'undefined')
+{
+	DF1ListSync.nMain = {};
+}
+
+DF1ListSync.nMain.onLoad =
+function()
+{
+	var settings = new DF1ListSync.iSettings();
+	settings.getUsername();
+};
+
+window.addEventListener("load", function(e) { DF1ListSync.nMain.onLoad(e); }, false);
+
+/*
 // Make a namespace.
 if (typeof Df1_listsync == 'undefined') {
   var Df1_listsync = {};
 }
 
-/**
- * UI controller that is loaded into the main player window
- */
+//UI controller that is loaded into the main player window
 Df1_listsync.Controller = {
 
-  /**
-   * Called when the window finishes loading
-   */
+	//Finished Loading
 	onLoad: function()
 	{
 
@@ -55,29 +72,22 @@ Df1_listsync.Controller = {
 	    }
 	},
   
-
-  /**
-   * Called when the window is about to close
-   */
-  onUnLoad: function()
+//On Exit
+onUnLoad: function()
   {
     this._initialized = false;
 	Df1_listsync.ajax.destruct();
   },
   
 
-  /**
-   * Sample command action
-   */
+  //FirstRun
   doHelloWorld : function() {
     var message = "Df1_listsync: " + this._strings.getString("helloMessage") + this._initialized;
     alert(message);
   },
 
   
-  /**
-   * Perform extra setup the first time the extension is run
-   */
+  //Fisrt Run
   _firstRunSetup : function() {
   
     // Call this.doHelloWorld() after a 3 second timeout
@@ -89,3 +99,4 @@ Df1_listsync.Controller = {
 
 window.addEventListener("load", function(e) { Df1_listsync.Controller.onLoad(e); }, false);
 window.addEventListener("unload", function(e) { Df1_listsync.Controller.onUnLoad(e); }, false);
+*/

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overlay id="df1_listsync-scripts" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<!-- Polymophic base -->
+	<script src="cPolyClass/cPolyClass.js"/>
+	
+	<!-- Exceptions -->
+	<script src="Exceptions/iException/iException_body.js"/>
+	<script src="Exceptions/iException/iException.js"/>
+	
+	<script src="Exceptions/cNotImplementedException/cNotImplementedException_body.js"/>
+	<script src="Exceptions/cNotImplementedException/cNotImplementedException.js"/>
+	
+	
+	<script src="iSettings/iSettings_body.js"/>
+	<script src="iSettings/iSettings_username.js"/>
+	<script src="iSettings/iSettings.js"/>
+	
+	
+	<script src="main.js"/>
+	
+	<stringbundleset id="stringbundleset">
+		<stringbundle id="df1_listsync-strings" src="chrome://df1_listsync/locale/overlay.properties" />
+	</stringbundleset>
+	
+</overlay>
