@@ -14,7 +14,9 @@ DF1ListSync.nMain.onLoad =
 function()
 {
 	var httpRequest = new DF1ListSync.iXMLHttpRequest();
-	var ajax = new DF1ListSync.cAjax(httpRequest);
+	var settings = new DF1ListSync.cSettings();
+	var ajax = new DF1ListSync.cAjax(httpRequest,settings);
+	ajax.add();
 };
 
 window.addEventListener("load", function(e) { DF1ListSync.nMain.onLoad(e); }, false);

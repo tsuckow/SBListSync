@@ -15,5 +15,5 @@ function()
 	//Super
 	arguments.callee.$.construct.call(this);
 	
-	
+	this.events = new Array();
 };

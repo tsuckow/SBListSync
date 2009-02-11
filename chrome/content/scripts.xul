@@ -4,8 +4,11 @@
 	<!-- Polymophic base -->
 	<script src="cObject/cObject.js"/>
 	
-	<!-- Exceptions -->
+	<script src="Utils/Utils.js"/>
+	
+	
 	<script src="Exceptions/iException/iException.js"/>
+	<script src="iXMLHttpRequest/iXMLHttpRequest.js"/>
 	
 	<script src="Exceptions/cNotImplementedException/cNotImplementedException_body.js"/>
 	<script src="Exceptions/cNotImplementedException/cNotImplementedException.js"/>
@@ -17,7 +20,6 @@
 	<script src="iSettings/iSettings_body.js"/>
 	<script src="iSettings/iSettings.js"/>
 	
-	<script src="iXMLHttpRequest/iXMLHttpRequest.js"/>
 	
 	<script src="iAjax/iAjax_body.js"/>
 	<script src="iAjax/iAjax.js"/>
@@ -25,6 +27,7 @@
 	
 	<script src="cSettings/cSettings_body.js"/>
 	<script src="cSettings/cSettings_username.js"/>
+	<script src="cSettings/cSettings_events.js"/>
 	<script src="cSettings/cSettings.js"/>
 	
 	<script src="cAjax/cAjax_body.js"/>
