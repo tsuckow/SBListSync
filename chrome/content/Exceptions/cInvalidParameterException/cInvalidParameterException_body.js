@@ -8,7 +8,16 @@ if (typeof DF1ListSync.cInvalidParameterException_body == 'undefined')
 {
 	DF1ListSync.cInvalidParameterException_body = {};
 }
-		
+
+/**
+
+@param {String} msg Message in exception
+
+@class cInvalidParameterException
+@extends iException
+
+@constructor
+*/		
 DF1ListSync.cInvalidParameterException_body.construct =
 function(msg)
 {

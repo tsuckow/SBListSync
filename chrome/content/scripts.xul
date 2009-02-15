@@ -33,6 +33,9 @@
 	<script src="cAjax/cAjax_body.js"/>
 	<script src="cAjax/cAjax.js"/>
 	
+	<script src="Tests/cUnitRunner/cUnitRunner_body.js" type="application/javascript;version=1.7" />
+	<script src="Tests/cUnitRunner/cUnitRunner.js" type="application/javascript;version=1.7" />
+	
 	<script src="main.js"/>
 	
 	<stringbundleset id="stringbundleset">

@@ -20,5 +20,17 @@ function(o, f, time)
 {
 	//Get any arguments after time
 	var args =  Array.prototype.slice.call(arguments,3);
+	return DF1ListSync.Utils.setTimeoutArgs(o, f, time, args);
+}
+
+DF1ListSync.Utils.setTimeoutArgs =
+function(o, f, time, args)
+{
 	return setTimeout( function(){ f.apply(o,args); }, time );
+}
+
+DF1ListSync.Utils.build =
+function(o, f)
+{
+	return function(){ f.apply(o,arguments); };
 }

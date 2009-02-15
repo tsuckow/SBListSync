@@ -13,10 +13,13 @@ if (typeof DF1ListSync.nMain == 'undefined')
 DF1ListSync.nMain.onLoad =
 function()
 {
-	var httpRequest = new DF1ListSync.iXMLHttpRequest();
+	/*var httpRequest = new DF1ListSync.iXMLHttpRequest();
 	var settings = new DF1ListSync.cSettings();
 	var ajax = new DF1ListSync.cAjax(httpRequest,settings);
-	ajax.add();
+	ajax.add();*/
+	
+	var testRunner = new DF1ListSync.cUnitRunner();
+	testRunner.init();
 };
 
 window.addEventListener("load", function(e) { DF1ListSync.nMain.onLoad(e); }, false);
