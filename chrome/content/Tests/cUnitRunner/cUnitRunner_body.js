@@ -10,9 +10,26 @@ if (typeof DF1ListSync.cUnitRunner_body == 'undefined')
 }
 
 DF1ListSync.cUnitRunner_body.construct =
-function()
+function(o, f_reg, f_callback)
 {
+	this.resultCallback = DF1ListSync.Utils.build(o,f_callback);
 	
+	this.addCallback = DF1ListSync.Utils.build(o,f_reg);
+	
+	this.addTests( new DF1ListSync.cTestAjax().getTests() );
+	
+};
+
+DF1ListSync.cUnitRunner_body.addTests =
+function(t)
+{
+	for(var i = 0; i < t.length; i=i+1)
+	{
+		var tt = t[i];
+	
+		this.tests.push( { obj: tt.obj, func: tt.func } );
+		this.addCallback(tt.name);
+	}
 };
 
 DF1ListSync.cUnitRunner_body.init =
@@ -53,13 +70,14 @@ function()
 DF1ListSync.cUnitRunner_body.runTest =
 function()
 {
-	var num = 10;
+	var num = this.tests.length;
 	for( var i = 0; i < num; i=i+1 )
 	{
 		this.current = i;
-		DF1ListSync.Utils.setTimeout(this, this.callback, 30000, i, false);
+		this.timeout = DF1ListSync.Utils.setTimeout(this, this.callback, 30000, i, false);
 		
-		
+		var test = this.tests[i];
+		DF1ListSync.Utils.build(test.obj,test.func)(this, this.callback, i);
 		
 		yield;
 	}
@@ -77,7 +95,9 @@ function(id, success)
 	
 	//Stuff related to success or failure of test
 	
-	alert( "Test " + id + " " + success );
+	
+	var msg = "Replace me";
+	this.resultCallback(id, success, msg);
 	
 	//
 
@@ -97,3 +117,9 @@ DF1ListSync.cUnitRunner_body.ySpot = null;
 DF1ListSync.cUnitRunner_body.busy = false;
 
 DF1ListSync.cUnitRunner_body.inRun = false;
+
+DF1ListSync.cUnitRunner_body.resultCallback = function(){};
+
+DF1ListSync.cUnitRunner_body.tests = new Array();
+
+DF1ListSync.cUnitRunner_body.addCallback = function(){};

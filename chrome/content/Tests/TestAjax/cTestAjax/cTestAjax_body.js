@@ -12,5 +12,9 @@ if (typeof DF1ListSync.cTestAjax_body == 'undefined')
 DF1ListSync.cTestAjax_body.getTests =
 function()
 {
+	var tests = new Array();
 	
+	tests.push( { name: "Ajax: Send", obj: this, func: this.testSend } );
+	
+	return tests;
 };

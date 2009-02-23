@@ -15,6 +15,8 @@ function(o, f, id)
 	var oThis = this;
 	var callback = function(s, d){ oThis.testSendCallback(s, d, id, o, f); }
 	
+	var ajax = new DF1ListSync.cAjax( , );
+	
 	DF1ListSync.Utils.setTimeout(this, callback, 5000, true, []);
 };
 

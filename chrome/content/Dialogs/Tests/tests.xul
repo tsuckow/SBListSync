@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://df1_listsync/skin/tests.css" type="text/css"?>
+<!DOCTYPE dialog SYSTEM "chrome://df1_listsync/locale/tests.dtd">
+
+<dialog
+title="&tests;"
+orient="vertical"
+autostretch="always"
+onload="sizeToContent();load();"
+buttons="accept"
+xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script src="chrome://df1_listsync/content/Utils/ScopeProxy.js" ></script>
+	<script src="tests.js" ></script>
+	
+	<groupbox align="center" orient="horizontal">
+		<vbox>
+			<groupbox>
+			    <caption label="with multiple columns and a scrollbar" />
+			    <listbox rows="5" id="List">
+					<listcols>
+						<listcol flex="1" />
+						<splitter class="tree-splitter" />
+						<listcol flex="1" />
+						<splitter class="tree-splitter" />
+						<listcol flex="1" />
+					</listcols>
+					
+					<listhead>
+						<listheader label="Name" />
+						<listheader label="Sex" />
+						<listheader label="Color" />
+					</listhead>
+					
+				    <listitem>
+						<label value="Pearl" />
+						<label value="Female" />
+						<label value="Gray" />
+					</listitem>
+					
+			    </listbox>
+			</groupbox>
+		</vbox>
+	</groupbox>
+</dialog>

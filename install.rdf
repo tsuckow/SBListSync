@@ -5,7 +5,7 @@
     <em:id>df1_listsync@defcon1.hopto.org</em:id>
     <em:type>2</em:type>
     <em:name>ListSync</em:name>
-    <em:version>0.1.1</em:version>
+    <em:version>0.2.1</em:version>
     <em:creator>Thomas Suckow</em:creator>
 
 	<em:iconURL>chrome://df1_listsync/content/extensionicon.png</em:iconURL>
@@ -17,7 +17,7 @@
 
 	<em:homepageURL>http://defcon1.hopto.org/</em:homepageURL>
     <em:optionsURL>chrome://df1_listsync/content/dialogOptions/options.xul</em:optionsURL>
-	<em:aboutURL>chrome://df1_listsync/content/dialogAbout/about.xul</em:aboutURL>
+	<em:aboutURL>chrome://df1_listsync/content/Dialogs/About/about.xul</em:aboutURL>
 
 
 

@@ -18,7 +18,7 @@ function()
 	var ajax = new DF1ListSync.cAjax(httpRequest,settings);
 	ajax.add();*/
 	
-	var testRunner = new DF1ListSync.cUnitRunner();
+	var testRunner = new DF1ListSync.cUnitRunner(this, function(){}, function(id, s, m){alert("Callback: " + id + " " + s + " " + m);} );
 	testRunner.init();
 };
 
