@@ -4,11 +4,14 @@
 <!DOCTYPE dialog SYSTEM "chrome://df1_listsync/locale/tests.dtd">
 
 <dialog
+id="tests"
 title="&tests;"
 orient="vertical"
 autostretch="always"
 onload="sizeToContent();load();"
-buttons="accept"
+buttons="accept,extra2"
+buttonlabelextra2="&run;"
+ondialogextra2="run()"
 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<script src="chrome://df1_listsync/content/Utils/ScopeProxy.js" ></script>
 	<script src="tests.js" ></script>
@@ -16,27 +19,18 @@ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<groupbox align="center" orient="horizontal">
 		<vbox>
 			<groupbox>
-			    <caption label="with multiple columns and a scrollbar" />
-			    <listbox rows="5" id="List">
+			    <caption label="Tests" />
+			    <listbox rows="8" id="List" style="width:300px;">
 					<listcols>
 						<listcol flex="1" />
 						<splitter class="tree-splitter" />
-						<listcol flex="1" />
-						<splitter class="tree-splitter" />
-						<listcol flex="1" />
+						<listcol flex="0" style="width:75px;"/>
 					</listcols>
 					
 					<listhead>
-						<listheader label="Name" />
-						<listheader label="Sex" />
-						<listheader label="Color" />
+						<listheader label="Test" />
+						<listheader label="Result" />
 					</listhead>
-					
-				    <listitem>
-						<label value="Pearl" />
-						<label value="Female" />
-						<label value="Gray" />
-					</listitem>
 					
 			    </listbox>
 			</groupbox>

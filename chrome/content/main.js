@@ -17,19 +17,11 @@ function()
 	var settings = new DF1ListSync.cSettings();
 	var ajax = new DF1ListSync.cAjax(httpRequest,settings);
 	ajax.add();*/
-	
-	var testRunner = new DF1ListSync.cUnitRunner(this, function(){}, function(id, s, m){alert("Callback: " + id + " " + s + " " + m);} );
-	testRunner.init();
 };
 
 window.addEventListener("load", function(e) { DF1ListSync.nMain.onLoad(e); }, false);
 
 /*
-// Make a namespace.
-if (typeof Df1_listsync == 'undefined') {
-  var Df1_listsync = {};
-}
-
 //UI controller that is loaded into the main player window
 Df1_listsync.Controller = {
 

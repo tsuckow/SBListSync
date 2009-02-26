@@ -1,0 +1,11 @@
+.Rgood label
+{
+	font-weight:bold;
+	color: #00FF00;
+}
+
+.Rbad label
+{
+	font-weight:bold;
+	color: #FF0000;
+}

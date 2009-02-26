@@ -15,9 +15,17 @@ function(o, f, id)
 	var oThis = this;
 	var callback = function(s, d){ oThis.testSendCallback(s, d, id, o, f); }
 	
-	var ajax = new DF1ListSync.cAjax( , );
+	var httpRequest = new tTestAjax_HttpRequest();
 	
-	DF1ListSync.Utils.setTimeout(this, callback, 5000, true, []);
+	httpRequest.registerAction("GET", "http://example.com/a.php?a=1", true, 404, "BlaBlaBla");
+	
+	httpRequest.registerAction("GET", "http://example.com/a.php?a=1", true, 200, "ERROR_TEST\nData");
+	
+	httpRequest.registerAction("GET", "http://example.com/b.php?b=2", true, 200, "OK");
+	
+	//var ajax = new DF1ListSync.cAjax(httpRequest, );
+	
+	//DF1ListSync.Utils.setTimeout(this, callback, 5000, true, []);
 };
 
 DF1ListSync.cTestAjax_body.testSendCallback =

@@ -23,8 +23,10 @@ if(typeof DF1ListSync.cObject == 'undefined')
 	  var superClass = this.prototype;
 
 	  for (var n in def) {
-	      var item = def[n];                      
-	      if (item instanceof Function) item.$ = superClass;
+	      var item = def[n];
+			if(item instanceof Array)
+				alert( "AR " + typeof item.prototype )
+	      if ( item instanceof Function ) item.$ = superClass;
 	      proto[n] = item;
 	  }
 

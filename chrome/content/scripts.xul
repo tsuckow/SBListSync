@@ -16,6 +16,12 @@
 	<script src="Exceptions/cInvalidParameterException/cInvalidParameterException_body.js"/>
 	<script src="Exceptions/cInvalidParameterException/cInvalidParameterException.js"/>
 	
+	<script src="Exceptions/cInvalidOperationException/cInvalidOperationException_body.js"/>
+	<script src="Exceptions/cInvalidOperationException/cInvalidOperationException.js"/>
+	
+	<script src="Exceptions/cTestExpectationException/cTestExpectationException_body.js"/>
+	<script src="Exceptions/cTestExpectationException/cTestExpectationException.js"/>
+	
 	
 	<script src="iSettings/iSettings_body.js"/>
 	<script src="iSettings/iSettings.js"/>
@@ -35,6 +41,11 @@
 	
 	<script src="Tests/iUnitTest/iUnitTest_body.js" />
 	<script src="Tests/iUnitTest/iUnitTest.js" />
+	
+	
+	
+	<script src="Tests/TestAjax/tTestAjax_HttpRequest/tTestAjax_HttpRequest_body.js" />
+	<script src="Tests/TestAjax/tTestAjax_HttpRequest/tTestAjax_HttpRequest.js" />
 	
 	<script src="Tests/TestAjax/cTestAjax/cTestAjax_Send.js" />
 	<script src="Tests/TestAjax/cTestAjax/cTestAjax_body.js" />

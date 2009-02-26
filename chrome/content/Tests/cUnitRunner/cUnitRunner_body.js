@@ -12,6 +12,8 @@ if (typeof DF1ListSync.cUnitRunner_body == 'undefined')
 DF1ListSync.cUnitRunner_body.construct =
 function(o, f_reg, f_callback)
 {
+	this.tests = new Array();
+
 	this.resultCallback = DF1ListSync.Utils.build(o,f_callback);
 	
 	this.addCallback = DF1ListSync.Utils.build(o,f_reg);
@@ -117,9 +119,3 @@ DF1ListSync.cUnitRunner_body.ySpot = null;
 DF1ListSync.cUnitRunner_body.busy = false;
 
 DF1ListSync.cUnitRunner_body.inRun = false;
-
-DF1ListSync.cUnitRunner_body.resultCallback = function(){};
-
-DF1ListSync.cUnitRunner_body.tests = new Array();
-
-DF1ListSync.cUnitRunner_body.addCallback = function(){};

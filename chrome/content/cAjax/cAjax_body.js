@@ -73,6 +73,7 @@ function(url, obj, func)
 DF1ListSync.cAjax_body.retry =
 function()
 {
+	clearTimeout( this.retryTimer );
 	//Df1_listsync.StatusHandler.setText("Ajax: retry " + this.retryCount);
 	var oThis = this; //Referance to self. Use this in internal function so "this" will really point to this object and not something else.
 	var oHttp = this.http;
@@ -162,6 +163,10 @@ function()
 			{
 				call(true,result);
 			}
+		}
+		else
+		{
+			this.retry();
 		}
 	}
 };
