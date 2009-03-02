@@ -44,8 +44,8 @@ function(HttpRequest,Settings)
 	this.RETRYTIMEOUT = 4 * 1000;
 	
 	//Init Processing
-	//var oThis = this;
-	//this.timer = setTimeout(function(){ oThis.process(); },100);
+	var oThis = this;
+	this.timer = setTimeout(function(){ oThis.process(); },100);
 };
 
 DF1ListSync.cAjax_body.destroy =
@@ -59,7 +59,7 @@ function()
 	this.queue = new Array();
 }
 
-DF1ListSync.cAjax_body.queue =
+DF1ListSync.cAjax_body.open =
 function(url, obj, func)
 {
 	fobj = (typeof obj  == "undefined")?this:obj;
@@ -101,7 +101,7 @@ function()
 	else
 	{
 		//Try Again
-		this.process();
+		//this.process();
 	}
 };
 
@@ -130,7 +130,7 @@ function()
 
 		//Setup Callback
 		var oThis = this;
-		this.http.onreadystatechange = function () { oThis.handleCallback(); };
+		this.http.onreadystatechange = function () { oThis.ajaxCallback(); };
 		
 		this.http.send(null);
 

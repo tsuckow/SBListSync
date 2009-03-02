@@ -46,6 +46,10 @@
 	
 	<script src="Tests/TestAjax/tTestAjax_HttpRequest/tTestAjax_HttpRequest_body.js" />
 	<script src="Tests/TestAjax/tTestAjax_HttpRequest/tTestAjax_HttpRequest.js" />
+
+	<script src="Tests/TestAjax/tTestAjax_Settings/tTestAjax_Settings_events.js" />	
+	<script src="Tests/TestAjax/tTestAjax_Settings/tTestAjax_Settings_body.js" />
+	<script src="Tests/TestAjax/tTestAjax_Settings/tTestAjax_Settings.js" />
 	
 	<script src="Tests/TestAjax/cTestAjax/cTestAjax_Send.js" />
 	<script src="Tests/TestAjax/cTestAjax/cTestAjax_body.js" />

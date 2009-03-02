@@ -25,7 +25,7 @@ function(o, f, time)
 
 DF1ListSync.Utils.setTimeoutArgs =
 function(o, f, time, args)
-{
+{	
 	return setTimeout( function(){ f.apply(o,args); }, time );
 }
 

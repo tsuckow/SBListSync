@@ -76,10 +76,19 @@ function()
 	for( var i = 0; i < num; i=i+1 )
 	{
 		this.current = i;
+		
 		this.timeout = DF1ListSync.Utils.setTimeout(this, this.callback, 30000, i, false);
 		
 		var test = this.tests[i];
-		DF1ListSync.Utils.build(test.obj,test.func)(this, this.callback, i);
+		
+		try
+		{
+			DF1ListSync.Utils.build(test.obj,test.func)(this, this.callback, i);
+		}
+		catch(e)
+		{
+			alert( "Exception in test:\n" + e + "\nFile: " + e.fileName + "\nLine: " + e.lineNumber );
+		}
 		
 		yield;
 	}
