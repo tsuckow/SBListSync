@@ -29,6 +29,7 @@ function(HttpRequest,Settings)
 	this.http = HttpRequest;
 	this.settings = Settings;
 	
+	//TODO: This is for IO not ajax
 	this.settings.addEventListener(this, this.settingsCallback);
 	
 	//Empty Queue
@@ -123,7 +124,8 @@ function()
 		//build the URL
 		var sURL = item[0];
 		
-		if(this.retryCount == 0) Df1_listsync.StatusHandler.setText("Ajax: url " + sURL);
+		//TODO: Update this to new system
+		//if(this.retryCount == 0) Df1_listsync.StatusHandler.setText("Ajax: url " + sURL);
 
 		//open connection to suggestion source file
 		this.http.open("get", sURL , true);
@@ -171,6 +173,7 @@ function()
 	}
 };
 
+//TODO: This is for IO not ajax
 DF1ListSync.cAjax_body.settingsCallback =
 function(o)
 {
