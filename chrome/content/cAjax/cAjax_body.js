@@ -46,7 +46,7 @@ function(HttpRequest,Settings)
 	
 	//Init Processing
 	var oThis = this;
-	this.timer = setTimeout(function(){ oThis.process(); },100);
+	this.timer = DF1ListSync.Utils.setTimeout(this, this.process, 100);
 };
 
 DF1ListSync.cAjax_body.destroy =
@@ -110,7 +110,7 @@ DF1ListSync.cAjax_body.process =
 function()
 {
 	var oThis = this;
-	this.timer = setTimeout(function(){ oThis.process(); },100);
+	this.timer = DF1ListSync.Utils.setTimeout(this, this.process, 100);
 	
 	if( this.http.readyState != 0 )
 	{
@@ -136,7 +136,7 @@ function()
 		
 		this.http.send(null);
 
-		this.retryTimer = setTimeout( function(){ oThis.retry() }, this.RETRYTIMEOUT );
+		this.retryTimer = DF1ListSync.Utils.setTimeout(this, this.retry, this.RETRYTIMEOUT);
 	}
 };
 
