@@ -12,6 +12,11 @@ if (typeof DF1ListSync.cIOInvoker_body == 'undefined')
 DF1ListSync.cIOInvoker_body.construct =
 function(set)
 {
+	if( !( set instanceof DF1ListSync.iSettings ) )
+	{
+		throw new DF1ListSync.cInvalidParameterException("Not an instance of iSettings");
+	}
+
 	this.settings = set;
 	
 	this.queue = new Array();

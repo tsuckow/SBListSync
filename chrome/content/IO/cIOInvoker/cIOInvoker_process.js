@@ -19,7 +19,7 @@ function()
 	{
 		var item = this.queue[0]; //Next Item, Peek dont pop
 		
-		item.execute();
+		this.busy = item.execute() === true;
 	}
 };
 
