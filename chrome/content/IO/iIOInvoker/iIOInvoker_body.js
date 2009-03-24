@@ -14,3 +14,7 @@ DF1ListSync.iIOInvoker_body.append = DF1ListSync.Utils.AbstractFunction;
 DF1ListSync.iIOInvoker_body.prepend = DF1ListSync.Utils.AbstractFunction;
 
 DF1ListSync.iIOInvoker_body.pop = DF1ListSync.Utils.AbstractFunction;
+
+DF1ListSync.iIOInvoker_body.setLogin = DF1ListSync.Utils.AbstractFunction;
+
+DF1ListSync.iIOInvoker_body.getLogin = DF1ListSync.Utils.AbstractFunction;

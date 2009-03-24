@@ -32,3 +32,17 @@ function(time)
 	var cmd = this.factory.getWait(time);
 	this.invoker.append(cmd);
 };
+
+DF1ListSync.cIOCommandExecuteFactory_body.addSetLogin =
+function(user, pass);
+{
+	var cmd = this.factory.getSetLogin(user, pass);
+	this.invoker.append(cmd);
+};
+
+DF1ListSync.cIOCommandExecuteFactory_body.addHello =
+function()
+{
+	var cmd = this.factory.getHello();
+	this.invoker.append(cmd);
+};

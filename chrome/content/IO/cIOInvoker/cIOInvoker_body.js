@@ -19,7 +19,12 @@ function(set)
 
 	this.settings = set;
 	
+	this.user = "";
+	this.pass = "";
+	
 	this.queue = new Array();
+	
+	this.busy = false;
 		
 	this.timer = DF1ListSync.Utils.setTimeout(this, this.process, 100);
 };
@@ -50,4 +55,17 @@ DF1ListSync.cIOInvoker_body.pop =
 function()
 {
 	this.queue.shift();
+};
+
+DF1ListSync.cIOInvoker_body.setLogin =
+function(user, pass)
+{
+	this.user = user;
+	this.pass = pass;
+};
+
+DF1ListSync.cIOInvoker_body.getLogin =
+function()
+{
+	return { user: this.user, pass: this.user };
 };

@@ -30,7 +30,7 @@ function(success,data)
 	{
 		var item = this.queue[0]; //Next Item, Peek dont pop
 		
-		item.callback();
+		item.callback(success, data);
 	}
 		
 	this.busy = false;
