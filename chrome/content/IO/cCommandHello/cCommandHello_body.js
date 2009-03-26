@@ -51,11 +51,20 @@ function(success, data)
 {
 	if(success)
 	{
-		var chall = data[0]
+		var lines = data.split("\n");
+						
+		if( lines[0] == "OK" )
+		{
+			var chall = lines[1];
+			
+			this.invoker.pop();
 		
-		this.invoker.pop();
-		
-		this.factory.addLogin(chal);
+			this.factory.addLogin(chall);
+		}
+		else
+		{
+			this.factory.addWait();
+		}
 	}
 	else
 	{
