@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="chrome://df1_listsync/skin/tests.css" type="text/css"?>
-<!DOCTYPE dialog SYSTEM "chrome://df1_listsync/locale/tests.dtd">
+<!DOCTYPE dialog SYSTEM "chrome://df1_listsync/locale/logger.dtd">
 
 <dialog
-id="tests"
-title="&tests;"
+id="logger"
+title="&logger;"
 orient="vertical"
 autostretch="always"
 onload="sizeToContent();load();"
-buttons="accept,extra2"
-buttonlabelextra2="&run;"
-ondialogextra2="run()"
+buttons="accept"
 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<script src="chrome://df1_listsync/content/Utils/ScopeProxy.js" ></script>
-	<script src="tests.js" ></script>
+	<script src="logger.js" ></script>
 	
 	<groupbox align="center" orient="horizontal">
 		<vbox>
@@ -26,8 +24,8 @@ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 				</listcols>
 				
 				<listhead>
-					<listheader label="Test" />
-					<listheader label="Result" />
+					<listheader label="A" />
+					<listheader label="B" />
 				</listhead>
 				
 			</listbox>

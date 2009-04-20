@@ -1,2 +1,4 @@
 <!ENTITY df1_listsync.menu.settings.label "ListSync Settings">
 <!ENTITY df1_listsync.menu.enable.label "Enable Syncing">
+<!ENTITY df1_listsync.status.bar.loading.label "SBListSync (Loading...)">
+<!ENTITY df1_listsync.status.tooltip.loading.label "Loading...">

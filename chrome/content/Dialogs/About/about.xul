@@ -8,8 +8,10 @@ title="&about;"
 orient="vertical"
 autostretch="always"
 onload="sizeToContent()"
-buttons="accept,extra2"
+buttons="accept,extra1,extra2"
+buttonlabelextra1="&logger;"
 buttonlabelextra2="&tests;"
+ondialogextra1="openLogger()"
 ondialogextra2="openTests()"
 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 <!-- Original template by Jed Brown -->

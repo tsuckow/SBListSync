@@ -1,5 +1,6 @@
 <!ENTITY about "About ListSync">
 <!ENTITY tests "Unit Tests">
+<!ENTITY logger "Logger">
 <!ENTITY version "Version:">
 <!ENTITY createdBy "Created By:">
 <!ENTITY hostingBy "Hosting By:">

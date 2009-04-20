@@ -13,8 +13,7 @@ if (typeof DF1ListSync.nMain == 'undefined')
 DF1ListSync.nMain.onLoad =
 function()
 {
-
-
+	var status = new DF1ListSync.cStatus();
 
 /*
 	var http = new XMLHttpRequest();

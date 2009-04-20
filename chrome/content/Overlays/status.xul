@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet href="chrome://df1_listsync/skin/overlay.css" ?>
+<!DOCTYPE overlay SYSTEM "chrome://df1_listsync/locale/overlay.dtd">
+
+<overlay
+id="df1_listsync-StatusOverlay"
+xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<!--<script src="status-overlay.js"/>-->
+
+	<statusbar id="status-bar">
+		<statusbarpanel id="df1_listsync-StatusIcon" class="statusbarpanel-iconic-text" src="chrome://df1_listsync/skin/busy.png" label="&df1_listsync.status.bar.loading.label;" tooltiptext="&df1_listsync.status.tooltip.loading.label;" width="16" height="16" />
+	</statusbar>
+</overlay>

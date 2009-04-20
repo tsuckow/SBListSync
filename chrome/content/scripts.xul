@@ -22,6 +22,11 @@
 	<script src="Exceptions/cTestExpectationException/cTestExpectationException_body.js"/>
 	<script src="Exceptions/cTestExpectationException/cTestExpectationException.js"/>
 	
+	<script src="iStatus/iStatus_body.js"/>
+	<script src="iStatus/iStatus.js"/>
+	
+	<script src="cStatus/cStatus_body.js"/>
+	<script src="cStatus/cStatus.js"/>
 	
 	<script src="iSettings/iSettings_body.js"/>
 	<script src="iSettings/iSettings.js"/>
