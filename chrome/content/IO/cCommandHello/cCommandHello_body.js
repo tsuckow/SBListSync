@@ -10,7 +10,7 @@ if (typeof DF1ListSync.cCommandHello_body == 'undefined')
 }
 
 DF1ListSync.cCommandHello_body.construct =
-function(invoker, factory, ajax)
+function(invoker, factory, ajax, obj, func)
 {
 	if( !( invoker instanceof DF1ListSync.iIOInvoker ) )
 	{
@@ -30,12 +30,14 @@ function(invoker, factory, ajax)
 	this.invoker = invoker;
 	this.factory = factory;
 	this.ajax = ajax;
+	this.obj = obj;
+	this.func = func;
 };
 
 DF1ListSync.cCommandHello_body.getName =
 function()
 {
-	return "IOCommand: Hello"
+	return "IOCommand: Hello";
 };
 
 DF1ListSync.cCommandHello_body.execute =
@@ -59,7 +61,7 @@ function(success, data)
 			
 			this.invoker.pop();
 		
-			this.factory.addLogin(chall);
+			this.factory.addLogin(this.chall, this.obj, this.func);
 		}
 		else
 		{

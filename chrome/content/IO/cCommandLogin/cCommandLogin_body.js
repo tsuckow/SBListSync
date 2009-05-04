@@ -10,7 +10,7 @@ if (typeof DF1ListSync.cCommandLogin_body == 'undefined')
 }
 
 DF1ListSync.cCommandLogin_body.construct =
-function(invoker, factory, ajax, chall)
+function(invoker, factory, ajax, chall, obj, func)
 {
 	if( !( invoker instanceof DF1ListSync.iIOInvoker ) )
 	{
@@ -31,12 +31,14 @@ function(invoker, factory, ajax, chall)
 	this.factory = factory;
 	this.ajax = ajax;
 	this.chall = chall;
+	this.obj = obj;
+	this.func = func;
 };
 
 DF1ListSync.cCommandLogin_body.getName =
 function()
 {
-	return "IOCommand: Hello"
+	return "IOCommand: Login";
 };
 
 DF1ListSync.cCommandLogin_body.execute =
@@ -81,7 +83,7 @@ function(success, data)
 			
 			//if( call !== undefined )
 			//{
-				call(false);
+			//	call(false);
 			//}
 		}
 		else

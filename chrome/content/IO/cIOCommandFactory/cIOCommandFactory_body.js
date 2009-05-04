@@ -10,11 +10,21 @@ if (typeof DF1ListSync.cIOCommandFactory_body == 'undefined')
 }
 
 DF1ListSync.cIOCommandFactory_body.construct =
-function(invoker, executeFactory)
+function(invoker, executeFactory, ajax)
 {
 	if( !( invoker instanceof DF1ListSync.iIOInvoker ) )
 	{
 		throw new DF1ListSync.cInvalidParameterException("Not an instance of iIOInvoker");
+	}
+	
+	if( !( executeFactory instanceof DF1ListSync.iIOCommandExecuteFactory ) )
+	{
+		throw new DF1ListSync.cInvalidParameterException("Not an instance of iIOCommandExecuteFactory");
+	}
+	
+	if( !( ajax instanceof DF1ListSync.iAjax ) )
+	{
+		throw new DF1ListSync.cInvalidParameterException("Not an instance of iAjax");
 	}
 	
 	this.invoker = invoker;
@@ -51,8 +61,15 @@ function(user, pass)
 };
 
 DF1ListSync.cIOCommandFactory_body.getHello =
-function
+function(obj, func)
 {
-	var obj = new DF1ListSync.cIOCommandHello(this.invoker);
+	var obj = new DF1ListSync.cIOCommandHello(this.invoker, this.executeFactory, this.ajax, obj, func);
+	return obj;
+};
+
+DF1ListSync.cIOCommandFactory_body.getLogin =
+function(chall, obj, func)
+{
+	var obj = new DF1ListSync.cIOCommandLogin(this.invoker, this.executeFactory, this.ajax, chall, obj, func);
 	return obj;
 };

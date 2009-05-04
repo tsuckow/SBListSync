@@ -41,8 +41,15 @@ function(user, pass);
 };
 
 DF1ListSync.cIOCommandExecuteFactory_body.addHello =
-function()
+function(obj, func)
 {
-	var cmd = this.factory.getHello();
+	var cmd = this.factory.getHello(obj, func);
+	this.invoker.append(cmd);
+};
+
+DF1ListSync.cIOCommandExecuteFactory_body.addLogin =
+function(chall, obj, func)
+{
+	var cmd = this.factory.getLogin(chall, obj, func);
 	this.invoker.append(cmd);
 };
