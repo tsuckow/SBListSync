@@ -5,6 +5,7 @@
 	<script src="cObject/cObject.js"/>
 	
 	<script src="Utils/Utils.js"/>
+	<script src="Utils/DialogUtils.js"/>
 	
 	
 	<script src="Exceptions/iException/iException.js"/>
@@ -22,9 +23,13 @@
 	<script src="Exceptions/cTestExpectationException/cTestExpectationException_body.js"/>
 	<script src="Exceptions/cTestExpectationException/cTestExpectationException.js"/>
 	
+	<script src="iLogger/iLogger_body.js"/>
+	<script src="iLogger/iLogger.js"/>
+	<script src="cLogger/cLogger_body.js"/>
+	<script src="cLogger/cLogger.js"/>
+	
 	<script src="iStatus/iStatus_body.js"/>
 	<script src="iStatus/iStatus.js"/>
-	
 	<script src="cStatus/cStatus_body.js"/>
 	<script src="cStatus/cStatus.js"/>
 	
@@ -48,7 +53,7 @@
 	<script src="Tests/iUnitTest/iUnitTest.js" />
 	
 	
-	
+	<!-- Move to test dialog? -->
 	<script src="Tests/TestAjax/tTestAjax_HttpRequest/tTestAjax_HttpRequest_body.js" />
 	<script src="Tests/TestAjax/tTestAjax_HttpRequest/tTestAjax_HttpRequest.js" />
 

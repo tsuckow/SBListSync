@@ -9,6 +9,7 @@ title="&logger;"
 orient="vertical"
 autostretch="always"
 onload="sizeToContent();load();"
+onclose="unload();"
 buttons="accept"
 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<script src="chrome://df1_listsync/content/Utils/ScopeProxy.js" ></script>
@@ -18,14 +19,14 @@ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 		<vbox>
 			<listbox rows="8" id="List" style="width:300px;">
 				<listcols>
-					<listcol flex="1" />
+					<listcol flex="0" style="width:75px;" />
 					<splitter class="tree-splitter" />
-					<listcol flex="0" style="width:75px;"/>
+					<listcol flex="1"/>
 				</listcols>
 				
 				<listhead>
-					<listheader label="A" />
-					<listheader label="B" />
+					<listheader label="Type" />
+					<listheader label="Msg" />
 				</listhead>
 				
 			</listbox>

@@ -13,8 +13,28 @@ if (typeof DF1ListSync.nMain == 'undefined')
 DF1ListSync.nMain.onLoad =
 function()
 {
+	//Logger
+	var logger = new DF1ListSync.cLogger();
+	DF1ListSync.DialogUtils.m_logger = logger;
+	
 	var status = new DF1ListSync.cStatus();
 
+	status.setText("Init");
+	
+	//
+	//LOGIN (This is only for dev and will be changed later)
+	//
+	
+	var settings = new DF1ListSync.cSettings();
+	
+	var http = new XMLHttpRequest();
+	
+	var ajax = new DF1ListSync.cAjax( http, settings );
+	
+	
+	//
+	//END LOGON
+	//
 /*
 	var http = new XMLHttpRequest();
 	
