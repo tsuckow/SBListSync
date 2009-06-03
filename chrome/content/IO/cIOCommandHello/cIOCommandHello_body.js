@@ -4,12 +4,12 @@ if (typeof DF1ListSync == 'undefined')
 	var DF1ListSync = {};
 }
 
-if (typeof DF1ListSync.cCommandHello_body == 'undefined')
+if (typeof DF1ListSync.cIOCommandHello_body == 'undefined')
 {
 	DF1ListSync.cCommandHello_body = {};
 }
 
-DF1ListSync.cCommandHello_body.construct =
+DF1ListSync.cIOCommandHello_body.construct =
 function(invoker, factory, ajax, obj, func)
 {
 	if( !( invoker instanceof DF1ListSync.iIOInvoker ) )
@@ -34,13 +34,13 @@ function(invoker, factory, ajax, obj, func)
 	this.func = func;
 };
 
-DF1ListSync.cCommandHello_body.getName =
+DF1ListSync.cIOCommandHello_body.getName =
 function()
 {
 	return "IOCommand: Hello";
 };
 
-DF1ListSync.cCommandHello_body.execute =
+DF1ListSync.cIOCommandHello_body.execute =
 function()
 {
 	this.ajax.open("hello.php", this.invoker, this.invoker.callback);
@@ -48,7 +48,7 @@ function()
 	return true;
 }
 
-DF1ListSync.cCommandHello_body.callback =
+DF1ListSync.cIOCommandHello_body.callback =
 function(success, data)
 {
 	if(success)

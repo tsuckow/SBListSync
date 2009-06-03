@@ -32,9 +32,13 @@ function()
 	var ajax = new DF1ListSync.cAjax( http, settings );
 	
 	
+	
 	//
 	//END LOGON
 	//
+	
+	var db = new DF1ListSync.cDB( "df1_listsync" );
+	
 /*
 	var http = new XMLHttpRequest();
 	
