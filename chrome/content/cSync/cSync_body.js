@@ -80,86 +80,35 @@ DF1ListSync.cSync_body.processList =
 function(list)
 {
 	Df1_listsync.StatusHandler.setText("Scanning list: " + list.remote);
-	//Get the list raw data 
-	var ListData = Df1_listsync.DB.getList( list.remote );
 	
-	//Split data into array
-	var Items;
-
-	if( ListData==undefined )
-	{
-		Items = new Array();
-	}
-	else
-	{
-		if( ListData == "" )
-			Items = new Array();
-		else
-			Items = ListData.split("\n");
-	}
-	
-	//Get remote list raw data.
-	var RemoteListData = Df1_listsync.DB.getRemoteList( list.remote );
-	
-	//Split data into array
-	var RemoteItems;
-	if( RemoteListData==undefined )
-	{
-		//Failure to load remote list must break out. else we would delete everything!
-		Df1_listsync.Sync.ManipCallback(true,"",list.remote);
-		break;
-	}
-	else
-	{
-		if( RemoteListData == "" )
-			RemoteItems = new Array();
-		else
-			RemoteItems = RemoteListData.split("\n");
-	}
-	
-	//alert( plList.contentSrc.prePath + plList.contentSrc.path )
-	
-	var sbILibraryManager=Components.classes["@songbirdnest.com/Songbird/library/Manager;1"].getService(Components.interfaces.sbILibraryManager);
-	var libraries=sbILibraryManager.getLibraries();
-	var foundLibrary;
-	var libraryPlList;
-	
-	//Get the main library, we only sync it.
-	foundLibrary=sbILibraryManager.mainLibrary;
-	libraryPlList=foundLibrary.QueryInterface(Components.interfaces.sbIMediaList);
-	
-	//Get the medialist (exception if not exist)
+	//Get Playlist Objects
 	try
 	{
-		var RealLists = foundLibrary.getMediaItem( list.local );//libraryPlList.getItemsByProperty( "contentSrc" , list.local );
+		var playlistReal   = this._playlistFactory.getRealPlaylist( list.local );
+		var playlistLocal  = this._playlistFactory.getLocalPlaylist( list.remote );
+		var playlistRemote = this._playlistFactory.getRemotePlaylist( list.remote );
 	}
 	catch(e)
 	{
-		Df1_listsync.DB.removeList( list.remote );
-		Df1_listsync.StatusHandler.setText("Removing non-existant list.");
-		return false;
+		//FIXME
+		//Not Found.
+		
+		return true;
 	}
 	
-	//Cast to medialist
-	var RealPList = RealLists.QueryInterface(Components.interfaces.sbIMediaList);
-	
-	//Enumerate to array
-	
-	//Make Array
-	RealPList.enumerateAllItems( Df1_listsync.Sync.ListEnumerator );
-	
-	//Get array
-	var RealList = Df1_listsync.Sync.ListEnumerator.getList();
-	
+	//Get the actual lists
+	var listReal   = playlistReal.getList();
+	var listLocal  = playlistLocal.getList();
+	var listRemote = playlistRemote.getList();
 	
 	//Join arrays (unique elements)
-	var JoinedList = Df1_listsync.Sync.uniqueArrayMerge( RealList, RemoteItems );
-	JoinedList = Df1_listsync.Sync.uniqueArrayMerge( JoinedList, Items );
+	var JoinedList = Df1_listsync.Sync.uniqueArrayMerge( listReal, listRemote );
+	JoinedList     = Df1_listsync.Sync.uniqueArrayMerge( JoinedList, listLocal );
 	
 	//Handle ALL music files, regardless of the list it is in.
 	for( var i = 0; i < JoinedList.length; i=i+1 )
 	{
-		if(JoinedList[i] == "") continue;
+		if(JoinedList[i] == "") return true;
 		var isReal = RealList.indexOf( JoinedList[i] ) >= 0;
 		var isLocal = Items.indexOf( JoinedList[i] ) >= 0;
 		var isRemote = RemoteItems.indexOf( JoinedList[i] ) >= 0;
@@ -179,55 +128,17 @@ function(list)
 		var local = (!isLocal && isRemote) || (isLocal && !isRemote);
 		var remote = (!isReal && isLocal && isRemote) || (isReal && !isLocal && !isRemote);
 		
-		//alert("" + add + " " + real + " " + local + " " + remote);
-		
 		//Manip Real Playlist
 		if(real)
 		{
 			Df1_listsync.StatusHandler.setText("Modifing Real");
 			if(add)
 			{
-				// Get a pointer to the IOService
-				// the IO service
-				var ioService = Components.classes["@mozilla.org/network/io-service;1"]
-										  .getService(Components.interfaces.nsIIOService);
-
-				// create an nsIURI
-				try
-				{
-					var uri = ioService.newURI( JoinedList[i] , null, null);
-				}
-				catch(e)
-				{
-					alert("ListSync Error: Malformed URL.");
-				}
-			
-				if(uri)
-				{
-					//Add/locate MediaItem to/in main library
-					var ListItem = foundLibrary.createMediaItem( uri );
-					
-					//Add the media item to playlist
-					RealPList.add( ListItem );
-				}
+				playlistReal.add( JoinedList[i] );
 			}
 			else
 			{
-				var ListItems = new Array();
-				try
-				{
-					ListItems = RealPList.getItemsByProperty( SBProperties.contentURL, JoinedList[i] );
-				}
-				catch(e)
-				{
-					alert("ListSync Error: Item used to exist but no longer does.");
-				}
-				
-				if( ListItems.length > 0 )
-				{
-					var theItem = ListItems.queryElementAt(0,Components.interfaces.sbIMediaItem);
-					RealPList.remove( theItem );
-				}
+				playlistReal.remove( JoinedList[i] );
 			}
 		}
 		
@@ -237,21 +148,11 @@ function(list)
 			Df1_listsync.StatusHandler.setText("Modifing Local");
 			if(add)
 			{
-				//Add Entry
-				Items.push( JoinedList[i] );
-				
-				//Commit
-				var newLocalList = Items.join("\n");
-				Df1_listsync.DB.setList(list.remote,newLocalList);
+				playlistLocal.add( JoinedList[i] );
 			}
 			else
 			{
-				//Remove Entry
-				Items.splice( Items.indexOf( JoinedList[i] ), 1 );
-				
-				//Commit
-				var newLocalList = Items.join("\n");
-				Df1_listsync.DB.setList(list.remote,newLocalList);
+				playlistLocal.remove( JoinedList[i] );
 			}
 		}
 		
@@ -260,18 +161,16 @@ function(list)
 			Df1_listsync.StatusHandler.setText("Modifing Remote");
 			if(add)
 			{
-				//ListID, OldListHash(Check for changes since last cache), OP, Item, Callback
-				Df1_listsync.IO.remotePlaylistManip( list.remote, sha1( RemoteListData ), Df1_listsync.IOmanipOps.ADD, JoinedList[i], function(success, data){ Df1_listsync.Sync.ManipCallback(success, data, list.remote) } );
+				playlistRemote.add( JoinedList[i] );
 			}
 			else
 			{
-				//ListID, OldListHash(Check for changes since last cache), OP, Item, Callback
-				Df1_listsync.IO.remotePlaylistManip( list.remote, sha1( RemoteListData ), Df1_listsync.IOmanipOps.REMOVE, JoinedList[i], function(success, data){ Df1_listsync.Sync.ManipCallback(success, data, list.remote) } );
+				playlistReal.remove( JoinedList[i] );
 			}
-		}
 		
-		//Only modify remote entry once, the cache will have to be updated or any further decisions would be rejected by server.
-		if(remote) return true;
+			//Only modify remote entry once, the cache will have to be updated or any further decisions would be rejected by server.
+			return true;
+		}
 	}
 		
 	return false;
