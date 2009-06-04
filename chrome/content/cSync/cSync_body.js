@@ -10,24 +10,40 @@ if (typeof DF1ListSync.cSync_body == 'undefined')
 }
 
 DF1ListSync.cSync_body.construct =
-function( playlistFactory )
+function( logger, playlistFactory )
 {
-	if( !( playlistFactory instanceof iPlaylistFactory ) )
+	if( !( logger instanceof DF1ListSync.iLogger ) )
+	{
+		throw new DF1ListSync.cInvalidParameterException("Not an instance of iLogger");
+	}
+
+	if( !( playlistFactory instanceof DF1ListSync.iPlaylistFactory ) )
 	{
 		throw new DF1ListSync.cInvalidParameterException("Not an instance of iPlaylistFactory");
 	}
 
+	this._logger = logger;
 	this._playlistFactory = playlistFactory;
 	
-	this.timer = null;
-	Df1_listsync.Sync.Delay();
+	//this.timer = null;
+	//Df1_listsync.Sync.Delay();
 };
+
+DF1ListSync.cSync_body.start =
+function()
+{
+}
+
+DF1ListSync.cSync_body.stop =
+function()
+{
+}
 
 DF1ListSync.cSync_body.forceSync =
 function()
 {
-	var now = new Date();
-	var timeStart= d.getTime();
+	//var now = new Date();
+	//var timeStart= d.getTime();
 };
 
 /**
@@ -79,7 +95,7 @@ function()
 DF1ListSync.cSync_body.processList =
 function(list)
 {
-	Df1_listsync.StatusHandler.setText("Scanning list: " + list.remote);
+	//Df1_listsync.StatusHandler.setText("Scanning list: " + list.remote);
 	
 	//Get Playlist Objects
 	try
@@ -131,7 +147,7 @@ function(list)
 		//Manip Real Playlist
 		if(real)
 		{
-			Df1_listsync.StatusHandler.setText("Modifing Real");
+			//Df1_listsync.StatusHandler.setText("Modifing Real");
 			if(add)
 			{
 				playlistReal.add( JoinedList[i] );
@@ -145,7 +161,7 @@ function(list)
 		
 		if(local)
 		{
-			Df1_listsync.StatusHandler.setText("Modifing Local");
+		//	Df1_listsync.StatusHandler.setText("Modifing Local");
 			if(add)
 			{
 				playlistLocal.add( JoinedList[i] );
@@ -158,14 +174,14 @@ function(list)
 		
 		if(remote)
 		{
-			Df1_listsync.StatusHandler.setText("Modifing Remote");
+			//Df1_listsync.StatusHandler.setText("Modifing Remote");
 			if(add)
 			{
 				playlistRemote.add( JoinedList[i] );
 			}
 			else
 			{
-				playlistReal.remove( JoinedList[i] );
+				playlistRemote.remove( JoinedList[i] );
 			}
 		
 			//Only modify remote entry once, the cache will have to be updated or any further decisions would be rejected by server.

@@ -9,27 +9,6 @@ if (typeof DF1ListSync.cSync_body == 'undefined')
 	DF1ListSync.cSync_body = {};
 }
 
-Df1_listsync.cSync_body.ListEnumerator =
-{
-	onEnumerationBegin: function(aMediaList)
-	{
-		this.list = new Array();
-	},
-	
-	onEnumeratedItem: function(aMediaList, aMediaItem)
-	{
-		this.list.push( aMediaItem.getProperty(SBProperties.contentURL) );
-	},  
-
-	onEnumerationEnd: function(aMediaList, aStatusCode)
-	{},
-	
-	getList: function()
-	{
-		return this.list;
-	},
-};
-
 Df1_listsync.cSync_body.uniqueArrayMerge =
 function(ar1, ar2)
 {

@@ -39,6 +39,10 @@ function()
 	
 	var db = new DF1ListSync.cDB( "df1_listsync" );
 	
+	var playlistFactory = new DF1ListSync.cPlaylistFactory( /*library,*/ db );
+	
+	var sync = new DF1ListSync.cSync( logger, playlistFactory );
+	
 /*
 	var http = new XMLHttpRequest();
 	
