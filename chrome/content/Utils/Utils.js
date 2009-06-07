@@ -32,5 +32,5 @@ function(o, f, time, args)
 DF1ListSync.Utils.build =
 function(o, f)
 {
-	return function(){ f.apply(o,arguments); };
+	return function(){ return f.apply(o,arguments); };
 }

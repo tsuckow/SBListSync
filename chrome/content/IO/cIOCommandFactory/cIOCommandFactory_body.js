@@ -10,25 +10,9 @@ if (typeof DF1ListSync.cIOCommandFactory_body == 'undefined')
 }
 
 DF1ListSync.cIOCommandFactory_body.construct =
-function(invoker, executeFactory, ajax)
+function( queue )
 {
-	if( !( invoker instanceof DF1ListSync.iIOInvoker ) )
-	{
-		throw new DF1ListSync.cInvalidParameterException("Not an instance of iIOInvoker");
-	}
-	
-	if( !( executeFactory instanceof DF1ListSync.iIOCommandExecuteFactory ) )
-	{
-		throw new DF1ListSync.cInvalidParameterException("Not an instance of iIOCommandExecuteFactory");
-	}
-	
-	if( !( ajax instanceof DF1ListSync.iAjax ) )
-	{
-		throw new DF1ListSync.cInvalidParameterException("Not an instance of iAjax");
-	}
-	
-	this.invoker = invoker;
-	this.executeFactory = executeFactory;
+	this._queue = queue;
 };
 
 DF1ListSync.cIOCommandFactory_body.getWait =
@@ -43,33 +27,8 @@ function(time)
 	return obj;
 };
 
-DF1ListSync.cIOCommandFactory_body.getSetLogin =
-function(user, pass)
+DF1ListSync.cIOCommandFactory_body.newGetLists =
+function( obj, func )
 {
-	if(typeof user != 'string')
-	{
-		throw new DF1ListSync.cInvalidParameterException("Username is not a string");
-	}
-	
-	if(typeof pass != 'string')
-	{
-		throw new DF1ListSync.cInvalidParameterException("Password is not a string");
-	}
-	
-	var obj = new DF1ListSync.cIOCommandSetLogin(this.invoker, this.executeFactory, user, pass);
-	return obj;
-};
-
-DF1ListSync.cIOCommandFactory_body.getHello =
-function(obj, func)
-{
-	var obj = new DF1ListSync.cIOCommandHello(this.invoker, this.executeFactory, this.ajax, obj, func);
-	return obj;
-};
-
-DF1ListSync.cIOCommandFactory_body.getLogin =
-function(chall, obj, func)
-{
-	var obj = new DF1ListSync.cIOCommandLogin(this.invoker, this.executeFactory, this.ajax, chall, obj, func);
-	return obj;
+	return new DF1ListSync.cIOCommandGetLists( obj, func );
 };

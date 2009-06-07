@@ -33,25 +33,62 @@
 	<script src="cStatus/cStatus_body.js"/>
 	<script src="cStatus/cStatus.js"/>
 	
-	<script src="iSettings/iSettings_body.js"/>
-	<script src="iSettings/iSettings.js"/>
-	
-	
 	<script src="iAjax/iAjax_body.js"/>
 	<script src="iAjax/iAjax.js"/>
 	
+	<script src="cAjax/cAjax_body.js"/>
+	<script src="cAjax/cAjax.js"/>
+	
+	<script src="iSettings/iSettings_body.js"/>
+	<script src="iSettings/iSettings.js"/>
 	
 	<script src="cSettings/cSettings_body.js"/>
 	<script src="cSettings/cSettings_username.js"/>
 	<script src="cSettings/cSettings_events.js"/>
 	<script src="cSettings/cSettings.js"/>
 	
-	<script src="cAjax/cAjax_body.js"/>
-	<script src="cAjax/cAjax.js"/>
+	<script src="iDB/iDB_body.js"/>
+	<script src="iDB/iDB.js"/>
+	
+	<script src="cDB/cDB_body.js"/>
+	<script src="cDB/cDB.js"/>
+	
+	<!-- IO -->
+	
+	<script src="IO/iIOQueue/iIOQueue_body.js"/>
+	<script src="IO/iIOQueue/iIOQueue.js"/>
+	
+	<script src="IO/cIOQueue/cIOQueue_body.js"/>
+	<script src="IO/cIOQueue/cIOQueue.js"/>
+	
+	<script src="IO/iIOCommand/iIOCommand_body.js"/>
+	<script src="IO/iIOCommand/iIOCommand.js"/>
+	
+	<script src="IO/cIOCommandGetLists/cIOCommandGetLists_body.js"/>
+	<script src="IO/cIOCommandGetLists/cIOCommandGetLists.js"/>
+	
+	<script src="IO/iIOCommandFactory/iIOCommandFactory_body.js"/>
+	<script src="IO/iIOCommandFactory/iIOCommandFactory.js"/>
+	
+	<script src="IO/cIOCommandFactory/cIOCommandFactory_body.js"/>
+	<script src="IO/cIOCommandFactory/cIOCommandFactory.js"/>
+	
+	<script src="IO/iIOManager/iIOManager_body.js"/>
+	<script src="IO/iIOManager/iIOManager.js"/>
+	
+	<script src="IO/cIOManager/cIOManager_body.js"/>
+	<script src="IO/cIOManager/cIOManager.js"/>
+	
+	<script src="IO/iIOPump/iIOPump_body.js"/>
+	<script src="IO/iIOPump/iIOPump.js"/>
+	
+	<script src="IO/cIOPump/cIOPump_body.js"/>
+	<script src="IO/cIOPump/cIOPump.js"/>
 	
 	<script src="Tests/iUnitTest/iUnitTest_body.js" />
 	<script src="Tests/iUnitTest/iUnitTest.js" />
 	
+	<!-- End IO -->
 	
 	<!-- Move to test dialog? -->
 	<script src="Tests/TestAjax/tTestAjax_HttpRequest/tTestAjax_HttpRequest_body.js" />
