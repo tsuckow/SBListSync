@@ -32,3 +32,9 @@ function( obj, func )
 {
 	return new DF1ListSync.cIOCommandGetLists( obj, func );
 };
+
+DF1ListSync.cIOCommandFactory_body.newLogin =
+function( obj, func, user, pass )
+{
+	return new DF1ListSync.cIOCommandLogin( obj, func, user, pass );
+};

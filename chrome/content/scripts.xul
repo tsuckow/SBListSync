@@ -67,6 +67,9 @@
 	<script src="IO/cIOCommandGetLists/cIOCommandGetLists_body.js"/>
 	<script src="IO/cIOCommandGetLists/cIOCommandGetLists.js"/>
 	
+	<script src="IO/cIOCommandLogin/cIOCommandLogin_body.js"/>
+	<script src="IO/cIOCommandLogin/cIOCommandLogin.js"/>
+	
 	<script src="IO/iIOCommandFactory/iIOCommandFactory_body.js"/>
 	<script src="IO/iIOCommandFactory/iIOCommandFactory.js"/>
 	

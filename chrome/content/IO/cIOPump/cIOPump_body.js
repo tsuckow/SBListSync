@@ -27,16 +27,38 @@ function()
 	{
 		this._current = this._queue.pop();
 		
-		this._ajax.open( "http://sblistsync.novahost.org/Sync/" + this._current.getUrl(), this, this.callback );
+		this.doAjax();
 	}
+};
+
+DF1ListSync.cIOPump_body.doAjax =
+function()
+{
+	this._ajax.open( "http://sblistsync.novahost.org/Sync/" + this._current.getUrl(), this, this.callback );
 };
 
 DF1ListSync.cIOPump_body.callback =
 function( success, result )
 {
-	this._current.callback( success, result );
-
-	this._current = null;
+	var index = result.indexOf( "\n" );
+	var status = "";
+	var data = result;
+	
+	if( index != -1 )
+	{
+		status = result.substr( 0, index );
+		data = result.substr( index + 1 );
+	}
+	
+	var keep = this._current.callback( success, status, data );
+	if( keep === true )
+	{
+		this.doAjax();
+	}
+	else
+	{
+		this._current = null;
+	}
 };
 
 DF1ListSync.cIOPump_body.start =

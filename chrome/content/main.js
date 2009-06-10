@@ -53,24 +53,10 @@ function()
 	
 	pump.start();
 	
+	IOManager.newLogin( "user", "pass" );
+	
 	IOManager.request( "getLists" );
-/*
-	var http = new XMLHttpRequest();
-	
-	alert( (http.__proto__ == XMLHttpRequest.prototype) + " " + (http.__proto__ === XMLHttpRequest.prototype) + " " + http.readyState );
-	
-	http.__proto__.readyState = 5;
-	
-	alert( (http.__proto__ == XMLHttpRequest.prototype) + " " + (http.__proto__ === XMLHttpRequest.prototype) + " " + http.readyState );
 
-	var http2 = new XMLHttpRequest();
-	
-	alert( http2.readyState );
-	*/
-	/*var httpRequest = new DF1ListSync.iXMLHttpRequest();
-	var settings = new DF1ListSync.cSettings();
-	var ajax = new DF1ListSync.cAjax(httpRequest,settings);
-	ajax.add();*/
 };
 
 window.addEventListener("load", function(e) { DF1ListSync.nMain.onLoad(e); }, false);
