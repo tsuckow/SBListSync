@@ -1,6 +1,11 @@
 var timer = 0;
 var last_entries;
 
+//
+// This Should all be changed to use callbacks, logger sends notification when new log entry comes in,
+//
+
+
 var load =
 function()
 {

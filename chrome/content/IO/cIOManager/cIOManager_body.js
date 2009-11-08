@@ -92,7 +92,7 @@ function( status_code )
 	
 	if( status_code == DF1ListSync.iIOCommand.ERROR_CODES.NO_ERROR )
 	{
-		alert("GOOD");
+		//alert("GOOD");
 	}
 	else if( status_code == DF1ListSync.iIOCommand.ERROR_CODES.LOGIN_ERROR )
 	{
