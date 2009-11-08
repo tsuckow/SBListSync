@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<overlay id="df1_listsync-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-
-	<script src="DB.js" />
-
-</overlay>
