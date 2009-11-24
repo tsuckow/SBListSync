@@ -43,19 +43,19 @@ function()
 	
 	//var sync = new DF1ListSync.cSync( logger, playlistFactory );
 	
-	var queue = new DF1ListSync.cIOQueue();
+	//var queue = new DF1ListSync.cIOQueue();
 	
-	var IOfactory = new DF1ListSync.cIOCommandFactory( queue );
+	//var IOfactory = new DF1ListSync.cIOCommandFactory( queue );
 	
-	var IOManager = new DF1ListSync.cIOManager( queue, IOfactory );
+	//var IOManager = new DF1ListSync.cIOManager( queue, IOfactory );
 	
-	var pump = new DF1ListSync.cIOPump( ajax, queue );
+	//var pump = new DF1ListSync.cIOPump( ajax, queue );
 	
-	pump.start();
+	//pump.start();
 	
-	IOManager.newLogin( "user", "pass" );
+	//IOManager.newLogin( "user", "pass" );
 	
-	IOManager.request( "getLists" );
+	//IOManager.request( "getLists" );
 
 };
 

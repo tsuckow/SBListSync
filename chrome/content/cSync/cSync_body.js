@@ -185,6 +185,8 @@ function(list)
 			}
 		
 			//Only modify remote entry once, the cache will have to be updated or any further decisions would be rejected by server.
+			//This could be improved by modifing the remote list cache with changes we make, if we did it wrong, the server would still reject and we could recover.
+			//Well, the ASYNC could still be a problem. Well, not if we stop and then resume when we get responce. Doing the operation ourselves would save on network IO.
 			return true;
 		}
 	}

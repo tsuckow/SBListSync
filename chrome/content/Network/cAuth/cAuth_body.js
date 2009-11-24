@@ -12,6 +12,7 @@ if (typeof DF1ListSync.cAuth_body == 'undefined')
 DF1ListSync.cAuth_body.construct =
 function( logger )
 {
+	//For stuff about login manager
 	if( !( logger instanceof DF1ListSync.iLogger ) )
 	{
 		throw new DF1ListSync.cInvalidParameterException("Not an instance of iLogger");
@@ -21,27 +22,16 @@ function( logger )
 	
 	this._user = "";
 	this._pass = "";
-	
-	this._hash = "";
-	this._sessionID = "";
 };
 
 /**
-**  \brief Checks whether this instance has been authenticated successfully
+**  \brief Generate the response to an authentication challenge.
 */
-DF1ListSync.cAuth_body.isAuthenticated =
-function()
+DF1ListSync.cAuth_body.generateResponse =
+function( challenge )
 {
-	return this._sessionID != "";
-};
-
-/**
-**  \brief Forces this instance to reauthenticate
-*/
-DF1ListSync.cAuth_body.authenticate =
-function()
-{
-	//Do Magic Here
+	var hash = sha1( this._pass + "sbLS$4!t" );
+	return sha1( hash + challenge );
 };
 
 /**
@@ -52,9 +42,6 @@ function( user, pass )
 {
 	this._user = user;
 	this._pass = pass;
-	
-	this._hash = "";
-	this._sessionID = "";
 };
 
 DF1ListSync.cAuth_body.getUsername =
@@ -67,12 +54,6 @@ DF1ListSync.cAuth_body.getPassword =
 function()
 {
 	return this._pass;
-};
-
-DF1ListSync.iAuth_body.getSessionID =
-function()
-{
-	return this._sessionID;
 };
 
 DF1ListSync.cAuth_body.storeLogin =
